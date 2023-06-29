@@ -1,0 +1,234 @@
+<div class="container-fluid bg-light">
+    <div class="contain bg-light">
+
+        <div class="row mt-6" style="height : 500px">
+            <div class="col"></div>
+            <div class="col-md-6 bg-white shadow">
+
+                <div class="card bg-warning mt-4">
+                    <h1 class="text-white ps-3 pt-2 pb-2" style="text-align: center;">TO-DO LIST</h1>
+                </div>
+                <div class="shadow">
+                    <form [formGroup]="taskForm">
+                        <div class="input-group mb-3 p-4">
+                            <!-- [(ngModel)]="addTaskValue" -->
+                            <input type="text" class="form-control" placeholder="Enter Task" name="task" formControlName="taskItem"   >
+                            <button class="btn btn-outline-success" type="button" (click)="addTask()">Add</button>
+                        </div>
+                </form>
+                </div>
+                <h1 class="text-primary mt-4">Tasks: </h1>
+                <div style="overflow-y: auto; height: 350px;">
+                    <div class="m-3" *ngFor="let item of taskarray">
+                        <div class="p-2 shadow">
+                            <div class="input-group row ps-3">
+                                <div class="card col-md-10 border-0">{{item.taskItem}}</div>
+                                <button type="button" class="btn-outline-primary col me-2" data-bs-toggle="modal"  data-bs-target="#exampleModal" (click)="call(item)">Edit</button>
+                                <button class="btn-outline-danger col" (click)="deleteTask(item)">Delete</button>
+
+                            </div> 
+                        </div>
+                    </div>
+                
+                </div>
+  
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="updateForm">
+                                <div class="input-group mb-3 p-4">
+                                    <!-- [(ngModel)]="addTaskValue" -->
+                                    <input type="text" class="form-control" placeholder="Enter Task" name="task" formControlName="taskItemEdited" [(ngModel)]="editTaskValue" >
+                                    <button class="btn btn-outline-success" type="button" (click)="updateTask()" data-bs-dismiss="modal">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col"></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">
+    <div class="row">
+        <div style="background-color: #303030; height: 93vh;" class="col-md-3">
+            <div>
+                <div class="card mt-3"  >
+                    <div class="card-body" style="height:10rem">
+                        <form [formGroup]="todoForm">
+                            <div class="form-floating">
+                                <input type="text" formControlName="item" class="form-control" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Add Task Item</label>
+                            </div>
+                            <button class="btn btn-primary mt-3"  role="button" [disabled]="todoForm.invalid" (click)="addTask()">Add</button>
+                        </form>
+                    </div>
+                  </div>    
+            </div>
+        </div>
+        <div class="col md-9">
+            <div cdkDropListgroup>
+                <div class="row"> -->
+                    <div class="col-md-4">
+                        <!-- Todo Task -->
+                        <!-- <div class="example-container">
+                            <h2>To do</h2>
+                          
+                            <div
+                              cdkDropList
+                              #todoList="cdkDropList"
+                              [cdkDropListData]="taskPayload"
+                              
+                              class="example-list"
+                              (cdkDropListDropped)="drop($event)">
+                              <div class="example-box" *ngFor="let item of taskPayload" cdkDrag>{{item.task}}</div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-md-4"> -->
+                        <!-- Task Inprogress -->
+                        <!-- <div class="example-container">
+                            <h2>Task Inprogress</h2>
+                          
+                            <div
+                              cdkDropList
+                              #todoList="cdkDropList"
+                              [cdkDropListData]="taskInProgreess"
+                              
+                              class="example-list"
+                              (cdkDropListDropped)="drop($event)">
+                              <div class="example-box" *ngFor="let item of taskInProgreess" cdkDrag>{{item}}</div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-md-4"> -->
+                        <!-- Task Done -->
+                        <!-- <div class="example-container">
+                            <h2>Task Done</h2>
+                          
+                            <div
+                              cdkDropList
+                              #todoList="cdkDropList"
+                              [cdkDropListData]="taskDone"
+                              
+                              class="example-list"
+                              (cdkDropListDropped)="drop($event)">
+                              <div class="example-box" *ngFor="let item of taskDone" cdkDrag>{{item}}</div>
+                            </div>
+                          </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
